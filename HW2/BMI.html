@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <center><img class="logo"
+                        src="https://www.nitrocut.com/wp-content/uploads/2018/09/Benefits-of-the-BMI-Calculator-for-People-of-all-Ages.jpg"
+                        width="450" height="320"></center>
+            </div>
+        </div>
+        <div>
+            <h4 name="formTitle" class="formTitle">Body Mass Index (BMI) Calculator</h4>
+        </div>
+
+        <!--Brief summary of the calculation and why it's so important -->
+        <br>
+        <h3>What is BMI?</h3>
+        <p id="description">Body mass index (BMI) is a value derived from the mass (weight) and height of a person. The
+            BMI is defined as the body mass divided by the square of the body height, and is universally expressed in
+            units of kg/m2, resulting from mass in kilograms and height in metres.
+            <a href="https://www.health.harvard.edu/blog/how-useful-is-the-body-mass-index-bmi-201603309339">Why BMI
+                Matters</a>
+        </p>
+
+        <br>
+        <!--Form starts here -->
+        <form id="theForm">
+
+
+            <h5> Please choose your gender.</h5>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="male">Male: </label> <input id="male" type="checkbox" name="male" value="checked">
+                    </div>
+                    <div class="col-6">
+                        <label for="female">Female: </label> <input id="female" type="checkbox" name="female"
+                            value="checked">
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="weight">Weight(kg):</label> <input id="weight" type="number" name="weight"
+                                class="form-control" placeholder="Enter your weight please" min="0" max="200" required>
+                            <!-- <select type="multiple" id="weightunits">
+                                        <option value="kg" selected="selected">kg</option>
+                                        <option value="lb">lb</option> -->
+                        </div>
+                        <div class="col-6">
+                            <label for="height">Height(cm):</label> <input id="height" type="number" name="height"
+                                class="form-control" placeholder="Enter your height please" min="0" max="250" required>
+                            <!-- <select type="multiple" id="heightunits">
+                                        <option value="metres" selected="selected">metres</option>
+                                        <option value="inches">inches</option>
+                                    </select> -->
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <!-- <button><input type="submit" value="computeBMI" onclick="computeBMI();"></button>     -->
+                <button type="submit" value="Calculate" class="btn btn-primary btn-lg btn-block" id="button">Calculate
+                </button>
+
+                <!--Added a load chart for clarity and more information -->
+                <br>
+                <h5><a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi_tbl.htm">Body Mass Index Table
+                        1</a></h5>
+
+
+        </form>
+    </div>
+
+    <!-- This is a Hidden container and it'll only be seen when the form is submitted with required info -->
+
+
+    <div class="container" id="hidden container">
+        <div class="row" justify-content-center style="background-color:lightblue;">
+            <div class="col-6">
+                <table id="input-table"></table>
+
+            </div>
+
+            <div class="col-6">
+                <dl id="result"> </dl>
+            </div>
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn btn-primary btn-lg" id="return-btn">Go Back to BMI</button>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+
+</html>
