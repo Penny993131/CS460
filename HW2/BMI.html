@@ -9,6 +9,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+    <!-- Own Javascript -->
+    <script type="text/javascript" src="script.js"></script>
+
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="style.css" type="text/css">
 
@@ -62,25 +78,29 @@
                         <div class="col-6">
                             <label for="weight">Weight(kg):</label> <input id="weight" type="number" name="weight"
                                 class="form-control" placeholder="Enter your weight please" min="0" max="200" required>
-                            <select type="multiple" id="weightunits">
+                            <!-- <select type="multiple" id="weightunits">
                                         <option value="kg" selected="selected">kg</option>
-                                        <option value="lb">lb</option>
+                                        <option value="lb">lb</option> -->
                         </div>
                         <div class="col-6">
                             <label for="height">Height(cm):</label> <input id="height" type="number" name="height"
                                 class="form-control" placeholder="Enter your height please" min="0" max="250" required>
-                            <select type="multiple" id="heightunits">
+                            <!-- <select type="multiple" id="heightunits">
                                         <option value="metres" selected="selected">metres</option>
                                         <option value="inches">inches</option>
-                                    </select>
+                                    </select> -->
                         </div>
                     </div>
                 </div>
 
                 <br>
                 <!-- <button><input type="submit" value="computeBMI" onclick="computeBMI();"></button>     -->
-                <button type="submit" value="Calculate" class="btn btn-primary btn-lg btn-block" id="button">Calculate
-                </button>
+                <input type="button" name="BMI" value="BMI" onclick="BMIcalc()" />
+                <!-- <button type="submit" value="Calculate" class="btn btn-primary btn-lg btn-block" id="button" onclick="computeBMI()">Calculate
+                </button> -->
+                <div class="container" id="result">
+
+                </div>
 
                 <!--Added a load chart for clarity and more information -->
                 <br>
@@ -94,8 +114,8 @@
     <!-- This is a Hidden container and it'll only be seen when the form is submitted with required info -->
 
 
-    <div class="container" id="hidden container">
-        <div class="row" justify-content-center style="background-color:lightblue;">
+    <div class="container" id="hidden-container">
+        <div class="row" justify-content-center>
             <div class="col-6">
                 <table id="input-table"></table>
 
@@ -121,8 +141,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <!-- Javascript -->
-    <script type="text/javascript" src="script.js"></script>
 
 </body>
 
