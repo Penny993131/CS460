@@ -28,12 +28,13 @@ namespace HW4.Controllers
 
             return View();
         }
+        //create RGBColor Function
         public ActionResult RGBColor()
         {
             ViewBag.Red = Request.QueryString["Red"];
             ViewBag.Green = Request.QueryString["Green"];
             ViewBag.Blue = Request.QueryString["Blue"];
-
+            // 3 variables
             int red, green, blue;
             red = Convert.ToInt32(Request.QueryString["Red"]);
             green = Convert.ToInt32(Request.QueryString["Green"]);

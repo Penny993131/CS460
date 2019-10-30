@@ -9,7 +9,7 @@
         @*This is the start of the input form that uses Razor Helper for the form and the input *@
         @using (Html.BeginForm("RGBColor", "Home", FormMethod.Get))
         {
-
+            // crete lables for 3 inputs
             @Html.Label("Red", "R: ")
             @Html.TextBox("Red", null, new { @Class = "form-control", type = "string", required = "required", min = "0", max = "255" })
             @Html.Label("Green", "G: ")
@@ -17,27 +17,15 @@
             @Html.Label("Blue", "B: ")
             @Html.TextBox("Blue", null, new { @Class = "form-control", type = "string", required = "required", min = "0", max = "255" })
             <button type="submit">Display</button>
-
         }
     </div>
     <div class="col-md-4">
 
-
-        <div style="height: 200px; width = 200px; background: rgb(@ViewBag.Red,@ViewBag.Green,@ViewBag.Blue)">
-
-
-
-
+        <div style="height: 250px; width = 250px; background: rgb(@ViewBag.Red,@ViewBag.Green,@ViewBag.Blue)">
         </div>
 
-        <h4>@ViewBag.HX</h4>
-
+        <center><h4>#@ViewBag.HX</h4></center>
 
     </div>
-
-
-
-
-
 </div>
 
