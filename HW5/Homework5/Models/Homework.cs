@@ -11,19 +11,31 @@ namespace Homework5.Models
         public int ID { get; set; }
 
         [Required]
-        public string FirstName { get; set; }
+        public NVARCHAR(64) Priority { get; set; }
 
         [Required]
-        public string LastName { get; set; }
+        public DATETIME DueDate { get; set; }
 
         [Required]
-        public DateTime DOB { get; set; }
+        public Time DueTime { get; set; }
 
-       
+    [Required]
+    public TEXT Department { get; set; }
 
-        public override string ToString()
+    [Required]
+    public TEXT Course# { get; set; }
+
+    [Required]
+    public TEXT Homework Title { get; set; }
+
+    [Required]
+    public TEXT Notes { get; set; }
+
+
+
+    public override string ToString()
         {
-            return $"{base.ToString()}: {Priority} {LastName} {DOB} {Age}";
+            return $"{base.ToString()}: {Priority} {DueDate} {DueTime} {Department}{Course#}{Homework Title}{Notes}";
         }
     }
 }
