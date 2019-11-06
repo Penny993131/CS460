@@ -20,6 +20,7 @@ namespace Assignment5.Models
         public DateTime DueDate { get; set; }
 
         [Required]
+       
         public TimeSpan DueTime { get; set; }
 
         [Required]
