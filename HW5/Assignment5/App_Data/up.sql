@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Homeworks]
+﻿CREATE TABLE [dbo].[newHomeworks]
 (
 	[ID]		INT IDENTITY (1,1)	NOT NULL,
 	[HomeworkPriority] NVARCHAR(64)		NOT NULL,
@@ -8,11 +8,11 @@
 	[Course]    INT					NOT NULL,
 	[HomeworkTitle] NVARCHAR(max)		NOT NULL,
 	[Notes]     NVARCHAR(max)			
-	CONSTRAINT [PK_dbo.Homeworks] PRIMARY KEY CLUSTERED ([ID] ASC)
+	CONSTRAINT [PK_dbo.newHomeworks] PRIMARY KEY CLUSTERED ([ID] ASC)
 )
 
-INSERT INTO [dbo].[Homeworks] (HomeworkPriority, DueDate, DueTime, Department, Course, HomeworkTitle, Notes) VALUES
-	('Prefer','11-01-2019','23:59','Math','354','Complete Graph', 'Graded'),
+INSERT INTO [dbo].[newHomeworks] (HomeworkPriority, DueDate, DueTime, Department, Course, HomeworkTitle, Notes) VALUES
+	('prefer','11-01-2019','23:59','Math','354','Complete Graph', 'Graded'),
 	('prefer','12-31-2019','23:59','CS','121','Photoshop','unGraded'),
 	('later','09-15-2018','23:59','Art','231','Oil Painting','Graded'),
 	('later','10-01-2018','23:59','Music','110','Broadway Music','unGraded'),

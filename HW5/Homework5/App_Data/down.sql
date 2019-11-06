@@ -1,1 +1,1 @@
-﻿select * from homeworks;
+﻿DROP TABLE [dbo].[Homeworks];
