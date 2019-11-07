@@ -1,3 +1,2 @@
 # CS 460 Software Engineering I -- Fall 2019
-Something else 
-somehitng 
+Edit this in order to merge HW5 branch to master branch
