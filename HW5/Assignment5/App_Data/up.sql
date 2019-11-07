@@ -7,7 +7,7 @@
 	[Department] NVARCHAR(64)			NOT NULL,
 	[Course]    INT					NOT NULL,
 	[HomeworkTitle] NVARCHAR(max)		NOT NULL,
-	[Notes]     NVARCHAR(max)			
+	[Notes]     NVARCHAR(max)			NOT NULL, 
 	CONSTRAINT [PK_dbo.newHomeworks] PRIMARY KEY CLUSTERED ([ID] ASC)
 )
 
