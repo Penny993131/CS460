@@ -17,8 +17,11 @@ namespace Assignment5.Controllers
 
         // GET: Homework
         public ActionResult Index()
+        //make the descending order of the Duetime(got some idea from online searching and help from classmate )
         {
-            return View(db.Homeworks.ToList());
+            var Order = from d in db.Homeworks select d;
+            Order = Order.OrderByDescending(d => d.DueDate);
+            return View(Order.ToList());
         }
 
         // GET: Homework/Details/5

@@ -15,6 +15,7 @@ namespace Assignment5.Models
         public string HomeworkPriority { get; set; }
 
         [Required]
+        //make the Duetime into the correct format(got some idea from online searching and help from classmate )
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString ="{0:yyyy-MM-dd}")]
         public DateTime DueDate { get; set; }
