@@ -17,8 +17,11 @@ namespace Assignment5.Controllers
 
         // GET: Homework
         public ActionResult Index()
+
         {
-            return View(db.Homeworks.ToList());
+            var Order = from d in db.Homeworks select d;
+            Order = Order.OrderByDescending(d => d.DueDate);
+            return View(Order.ToList());
         }
 
         // GET: Homework/Details/5

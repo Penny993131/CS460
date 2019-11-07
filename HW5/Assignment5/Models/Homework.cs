@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Assignment5.Models
 {
-    public class Homework
+    public class Homework 
     {
         [Key]
         public int ID { get; set; }
@@ -15,6 +15,7 @@ namespace Assignment5.Models
         public string HomeworkPriority { get; set; }
 
         [Required]
+        //Make your DateTime in the correct format(here I got some ideas online and from myclassmates)
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString ="{0:yyyy-MM-dd}")]
         public DateTime DueDate { get; set; }
