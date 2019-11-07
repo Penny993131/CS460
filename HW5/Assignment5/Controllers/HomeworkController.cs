@@ -18,7 +18,7 @@ namespace Assignment5.Controllers
         // GET: Homework
         public ActionResult Index()
 
-        {
+        {//Make your DateTime in descending order(here I got some ideas online and from myclassmates)
             var Order = from d in db.Homeworks select d;
             Order = Order.OrderByDescending(d => d.DueDate);
             return View(Order.ToList());
