@@ -1,4 +1,4 @@
-﻿@model HW6.Models.StockItem
+﻿@model HW6.Models.ViewModels.StockItemDetailsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,55 +7,15 @@
 <h2>Details</h2>
 
 <div>
-    <h4>StockItem</h4>
+    <h4>StockItemDetailsViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Color.ColorName)
+            @Html.DisplayNameFor(model => model.StockItemID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Color.ColorName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PackageType.PackageTypeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PackageType.PackageTypeName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PackageType1.PackageTypeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PackageType1.PackageTypeName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Person.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Person.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.StockItemHolding.BinLocation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StockItemHolding.BinLocation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Supplier.SupplierName)
+            @Html.DisplayFor(model => model.StockItemID)
         </dd>
 
         <dt>
@@ -67,11 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Brand)
+            @Html.DisplayNameFor(model => model.RecommendedRetailPrice)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Brand)
+            @Html.DisplayFor(model => model.RecommendedRetailPrice)
         </dd>
 
         <dt>
@@ -83,59 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LeadTimeDays)
+            @Html.DisplayNameFor(model => model.Origin)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LeadTimeDays)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.QuantityPerOuter)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.QuantityPerOuter)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsChillerStock)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsChillerStock)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Barcode)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Barcode)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TaxRate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TaxRate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UnitPrice)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RecommendedRetailPrice)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RecommendedRetailPrice)
+            @Html.DisplayFor(model => model.Origin)
         </dd>
 
         <dt>
@@ -147,51 +59,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MarketingComments)
+            @Html.DisplayNameFor(model => model.LeadTimeDays)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MarketingComments)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.InternalComments)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.InternalComments)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CustomFields)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CustomFields)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SearchDetails)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SearchDetails)
+            @Html.DisplayFor(model => model.LeadTimeDays)
         </dd>
 
         <dt>
@@ -203,16 +75,58 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ValidTo)
+            @Html.DisplayNameFor(model => model.Tags)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ValidTo)
+            @Html.DisplayFor(model => model.Tags)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupplierName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FaxNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaxNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WebsiteURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebsiteURL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StockItemID }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
