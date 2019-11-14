@@ -1,0 +1,177 @@
+﻿@model IEnumerable<HW6.Models.StockItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Color.ColorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackageType.PackageTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackageType1.PackageTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockItemHolding.BinLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LeadTimeDays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantityPerOuter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsChillerStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecommendedRetailPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypicalWeightPerUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MarketingComments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InternalComments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomFields)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tags)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SearchDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValidFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValidTo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color.ColorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PackageType.PackageTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PackageType1.PackageTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Person.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockItemHolding.BinLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LeadTimeDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantityPerOuter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsChillerStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Barcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxRate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecommendedRetailPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypicalWeightPerUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MarketingComments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InternalComments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomFields)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tags)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SearchDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidFrom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValidTo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StockItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StockItemID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StockItemID })
+        </td>
+    </tr>
+}
+
+</table>
