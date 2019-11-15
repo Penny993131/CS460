@@ -1,16 +1,20 @@
-﻿using System;
+﻿using HW6.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace HW6.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private WWIContext db = new WWIContext();
+        public ActionResult Index(string name)
         {
-            return View();
+
+            return View(db.StockItems.Where(s => s.StockItemName.Contains(name)).ToList());
         }
 
         public ActionResult About()
@@ -28,3 +32,7 @@ namespace HW6.Controllers
         }
     }
 }
+
+
+
+

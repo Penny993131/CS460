@@ -20,6 +20,7 @@ namespace HW6.Models
             StockItemTransactions = new HashSet<StockItemTransaction>();
         }
 
+        public static object InvoiceLine { get; internal set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StockItemID { get; set; }
 

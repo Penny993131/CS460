@@ -14,13 +14,14 @@ namespace HW6.Controllers
 {
     public class StockItemsController : Controller
     {
-        private WWIContext db = new WWIContext();
+        
 
         // GET: StockItems
-        public ActionResult Index()
+        private WWIContext db = new WWIContext();
+        public ActionResult Index(string name)
         {
-           
-            return View();
+
+            return View(db.StockItems.Where(s => s.StockItemName.Contains(name)).ToList());
         }
 
         // GET: StockItems/Details/5
@@ -38,6 +39,6 @@ namespace HW6.Controllers
             StockItemDetailsViewModel viewModel = new StockItemDetailsViewModel(stockItem);
             return View(viewModel);
         }
-        
+
     }
 }

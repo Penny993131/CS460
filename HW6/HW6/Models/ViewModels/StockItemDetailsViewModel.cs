@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Spatial;
 using System.Linq;
 using System.Web;
 using Newtonsoft.Json.Linq;
+
 
 namespace HW6.Models.ViewModels
 {
@@ -31,7 +33,15 @@ namespace HW6.Models.ViewModels
             string website = stockitem.Supplier.WebsiteURL;
             WebsiteURL = website;
             string contactperson = stockitem.Supplier.Person2.FullName;
-            Contact = contactperson; 
+            Contact = contactperson;
+            InvoiceLines = stockitem.InvoiceLines.Count();
+            //GrossSales;
+            ExtendedPrice = stockitem.InvoiceLines.Select(x => x.ExtendedPrice).Sum();
+            //GrossProfis 
+            LineProfit = stockitem.InvoiceLines.Select(x => x.LineProfit).Sum();
+           
+
+
 
 
 
@@ -51,6 +61,14 @@ namespace HW6.Models.ViewModels
         public string FaxNumber { get; private set; }
         public string WebsiteURL { get; private set; }
         public string Contact { get; private set; }
+        public DbGeography DeliveryLocation { get; private set; }
+        public Supplier Supplier { get; private set; }
+        public int InvoiceLines { get; private set; }
+        public decimal ExtendedPrice {  get; private set; }
+        public decimal LineProfit { get; private set; }
+
+        
+
     }
 
 

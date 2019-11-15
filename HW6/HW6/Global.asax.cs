@@ -16,7 +16,7 @@ namespace HW6
         {
             // For Spatial types, i.e. Db Geography
             SqlServerTypes.Utilities.LoadNativeAssemblies(Server.MapPath("~/bin"));
-            // This next line is a fix that came from stackoverflow
+            // This next line is a fix that came from: https://stackoverflow.com/questions/13174197/microsoft-sqlserver-types-version-10-or-higher-could-not-be-found-on-azure/40166192#40166192
             SqlProviderServices.SqlServerTypesAssemblyName = typeof(SqlGeography).Assembly.FullName;
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
