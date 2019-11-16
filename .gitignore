@@ -328,7 +328,3 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
-
-HW5/Assignment5/.vs/
-AssignmentDB.mdf
-AssignmentDB_log.ldf
