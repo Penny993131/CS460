@@ -42,7 +42,7 @@ namespace HW6.Controllers
                 return HttpNotFound();
             }
             StockItemDetailsViewModel viewModel = new StockItemDetailsViewModel(stockItem);
-            return View(viewModel);
+            return View(viewModel);//passing the viewmodel here
         }
 
     }

@@ -22,3 +22,25 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#stockitem-description1 {
+    border: 1px dotted black;
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    background-clip: content-box;
+}
+
+#stockitem-description2 {
+    border: 1px dotted black;
+    padding: 10px;
+    background: lightgoldenrodyellow;
+    background-clip: content-box;
+}
+
+#stockitem-description3 {
+    border: 1px dotted black;
+    padding: 10px;
+    background: lightgoldenrodyellow;
+    background-clip: content-box;
+}
+ 
