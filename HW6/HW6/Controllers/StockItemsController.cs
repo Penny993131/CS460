@@ -18,10 +18,15 @@ namespace HW6.Controllers
 
         // GET: StockItems
         private WWIContext db = new WWIContext();
-        public ActionResult Index(string name)
+        /*
+         * IMPORTANT!
+         * What is this ActionResult doing?
+         * This is the same thing as the Index in HomeController
+         */
+        public ActionResult Index()
         {
 
-            return View(db.StockItems.Where(s => s.StockItemName.Contains(name)).ToList());
+            return View();
         }
 
         // GET: StockItems/Details/5

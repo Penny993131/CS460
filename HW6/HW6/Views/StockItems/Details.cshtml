@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "Details";
 }
-    <div class="row page-header">
-        <img src="https://blog.hubspot.com/hubfs/content_marketing_banner.jpg" height="150" width="750" />
-    </div>
+<div class="row page-header">
+    <img src="https://blog.hubspot.com/hubfs/content_marketing_banner.jpg" height="150" width="750" />
+</div>
 
 <h2>Details</h2>
 
@@ -94,14 +94,10 @@
                             @Html.DisplayFor(model => model.Photo)
                         </dd>
                     </dl>
-                    <div class="col-md-4">
-                        <img src="https://via.placeholder.com/250" />
-                    </div>
                 </div>
-
-
-
-
+            </div>
+            <img src="https://via.placeholder.com/250" />
+            <div>
                 <h4>Supplier Profile</h4>
                 <dl class="row">
 
@@ -129,7 +125,7 @@
                         </dd>
                         <dt>
                             <a href="mailto:@Html.DisplayFor(model => model.WebsiteURL)">  @Html.DisplayNameFor(model => model.WebsiteURL) </a>
-</dt>
+                        </dt>
 
                         <dd>
                             @Html.DisplayFor(model => model.WebsiteURL)
@@ -174,8 +170,8 @@
 
 
 
-       </dl>
-            </div>
+            </dl>
+    </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
         @Html.ActionLink("Back to List", "Index")

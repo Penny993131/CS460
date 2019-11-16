@@ -12,18 +12,24 @@ namespace HW6.Models.ViewModels
     {
         public StockItemDetailsViewModel(StockItem stockitem)
         {
+            //Start of finding stock item information
             StockItemID = stockitem.StockItemID;
             StockItemName = stockitem.StockItemName;
             Size = stockitem.Size;
-           string tempCustomFields = stockitem.CustomFields;
+
+            string tempCustomFields = stockitem.CustomFields;
             JObject jason = JObject.Parse(tempCustomFields);
             Origin = (string)jason["CountryOfManufacture"];
+
             RecommendedRetailPrice = stockitem.RecommendedRetailPrice;
             TypicalWeightPerUnit = stockitem.TypicalWeightPerUnit;
             LeadTimeDays = stockitem.LeadTimeDays;
             ValidFrom = stockitem.ValidFrom;
             Tags = stockitem.Tags;
             Photo = stockitem.Photo;
+            //Retreived stock item information
+
+            //Start of finding the Supplier information
             string company = stockitem.Supplier.SupplierName;
             SupplierName = company;
             string phone = stockitem.Supplier.PhoneNumber;
@@ -34,16 +40,16 @@ namespace HW6.Models.ViewModels
             WebsiteURL = website;
             string contactperson = stockitem.Supplier.Person2.FullName;
             Contact = contactperson;
+            //End of retrieving the supplier information
+
+            //Finding the sales information
             InvoiceLines = stockitem.InvoiceLines.Count();
+
             //GrossSales;
             ExtendedPrice = stockitem.InvoiceLines.Select(x => x.ExtendedPrice).Sum();
+
             //GrossProfis 
             LineProfit = stockitem.InvoiceLines.Select(x => x.LineProfit).Sum();
-           
-
-
-
-
 
         }
         public int StockItemID { get; private set; }
@@ -64,10 +70,10 @@ namespace HW6.Models.ViewModels
         public DbGeography DeliveryLocation { get; private set; }
         public Supplier Supplier { get; private set; }
         public int InvoiceLines { get; private set; }
-        public decimal ExtendedPrice {  get; private set; }
+        public decimal ExtendedPrice { get; private set; }
         public decimal LineProfit { get; private set; }
 
-        
+
 
     }
 
