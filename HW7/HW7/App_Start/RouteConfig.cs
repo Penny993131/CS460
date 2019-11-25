@@ -14,6 +14,12 @@ namespace HW7
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Example",
+                url: "this/is/an/inclass/example/gimme/{id}",
+                defaults: new { controller = "Home", action = "RandomNumbers", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

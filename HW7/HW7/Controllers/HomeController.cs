@@ -12,5 +12,17 @@ namespace HW7.Controllers
         {
             return View();
         }
+        
+        public JsonResult RandomNumbers(int? id = 100)
+        {
+            Random gen = new Random();
+            var data = new
+            {
+                message = "Random Numbers API",
+                num = (int)id,
+                numbers = Enumerable.Range(1, (int)id).Select(x => gen.Next(1000))
+            };
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
     }
 }
