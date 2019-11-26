@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+#repoimage {
+    height: 150px;
+    width: 150px;
+}

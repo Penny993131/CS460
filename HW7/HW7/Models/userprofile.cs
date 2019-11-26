@@ -13,6 +13,7 @@ namespace HW7.Models
         public string Email { get; private set; }
         public string Bio { get; private set; }
         public string Location { get; private set; }
+        public string Company { get; private set; }
 
         public string Profileurl { get; private set; }
         public userprofile(string Jsonstring)
@@ -23,6 +24,7 @@ namespace HW7.Models
             Email = userprofile["email"].ToString();
             Bio = userprofile["bio"].ToString();
             Location = userprofile["location"].ToString();
+            Company = userprofile["company"].ToString();
             Profileurl = userprofile["avatar_url"].ToString();
 
 
