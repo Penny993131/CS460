@@ -11,8 +11,7 @@
             //data.forEach((repo) => {
             //$("<li>").text(repo.name).appendTo("#repolist")
             //});
-
-        } 
+        }
     });
 })
 
@@ -24,7 +23,7 @@ function setRepos(data) {
 
         //This is a variable called repoName of type var(takes type of the value)
         // we are creating an Element <h3> 
-        var repoName = document.createElement('h3');
+        var repoName = document.createElement('a');
 
         //We are creating a variable called repoNameText and giving it the value of a name
         //We get this name from the data that Repos() from C# gives us.
@@ -39,6 +38,7 @@ function setRepos(data) {
 
         //Adding the header repoName and its children (repoNameText) to the end of the 
         // element with the id of #repos
+        repoName.href = data[i]["repoUrl"];
         $('#repos').append(repoName);
 
 
@@ -57,13 +57,5 @@ function setRepos(data) {
         RepoProfile.src = data[i]["repoProfile"];
         RepoProfile.id = "repoimage";
         $('#repos').append(RepoProfile);
-
-
-
-
-
     }
-
-    //console.log(data["repoName"]);
-
 }

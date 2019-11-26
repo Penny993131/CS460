@@ -26,3 +26,9 @@ textarea {
     height: 150px;
     width: 150px;
 }
+#userinfo {
+    border: 1px dotted black;
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    background-clip: content-box;
+}

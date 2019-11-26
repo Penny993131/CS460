@@ -1,22 +1,67 @@
 ﻿@model HW7.Models.userprofile
 
-<div class="row">
-    <div class="col-md-4"><img src="@Model.Profileurl" height="150" width="150" /> </div>
-    @Model.Name
 
-    @Model.Login
-
-    @Model.Email
-
-    @Model.Bio
-
-    @Model.Location
-
-    @Model.Company
-</div>
-<div id="repos">
-    
-</div>
 @section scripts{
     @Scripts.Render("~/Scripts/main.js")
 }
+
+
+
+<div class="row" id="userinfo">
+
+    
+    <div class="col-md-8">
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Name:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.Label("Owner:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Login)
+            </dd>
+
+            <dt>
+                @Html.Label("Email:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.Label("Bio:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Bio)
+            </dd>
+
+            <dt>
+                @Html.Label("Location:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+
+            <dt>
+                @Html.Label("Company:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Company)
+            </dd>
+
+        </dl>
+    </div>
+
+</div>
