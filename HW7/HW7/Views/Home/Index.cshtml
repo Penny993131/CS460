@@ -1,4 +1,14 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model HW7.Models.userprofile
 
+@Model.Name 
+@Model.Login
+@Model.Email
+@Model.Bio
+@Model.Location
+<img src="@Model.Profileurl" />
+
+@section scripts{
+
+@Scripts.Render("~/Scripts/main.js")
+
+}
