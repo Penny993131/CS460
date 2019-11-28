@@ -32,3 +32,17 @@ textarea {
     background-color: lightgoldenrodyellow;
     background-clip: content-box;
 }
+
+#repoinfo {
+    border: 1px dotted black;
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    background-clip: content-box;
+}
+
+#commitsinfo {
+    border: 1px dotted black;
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    background-clip: content-box;
+}

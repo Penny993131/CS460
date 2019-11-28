@@ -1,38 +1,82 @@
 ﻿@model HW7.Models.userprofile
 
-<div class="jumbotron">
+<div class="jumbotron", id="userinfo">
     <div class="row">
-     
-        <div class="col-lg-4"><img src="@Model.Profileurl" height="150" width="150" /> </div>
-        <div class="col-lg-6">
-            <p>@Model.Name</p>
-            <p>@Model.Login</p>
-            <p>@Model.Email</p>
-            <p>@Model.Bio</p>
-            <p>@Model.Location</p>
-            <p>
-                @Model.Company
-            </p>
+        <center> <h4><strong>Welcome to Penny's Repo</strong></h4></center>
+        <center>
+            <div class="col-md-6"><img src="@Model.Profileurl" height="150" width="150" /> </div></center>
+        <div class="col-md-6">
+            
+            
+            <center>
+                <dl class="dl-horizontal">
+                    <dt>
+                        Name:
+                    </dt>
 
+                    <dd>
+                        <a href="https://github.com/Penny993131 ">@Model.Name</a>
+                    </dd>
+                    <dt>
+                        Owner:
+                    </dt>
+
+                    <dd>
+                        @Model.Login
+                    </dd>
+
+                    <dt>
+                        Email:
+                    </dt>
+                    <dd>
+                        xyang16@wou.edu
+                    </dd>
+                    <dt>
+                        Bio:
+                    </dt>
+                    <dd>
+                        @Model.Bio
+                    </dd>
+                    <dt>
+                        Company:
+                    </dt>
+                    <dd>
+                        @Model.Company
+                    </dd>
+                    <dt>
+                        Location:
+                    </dt>
+                    <dd>
+                        @Model.Location
+                    </dd>
+
+
+                </dl>
+
+            </center>
         </div>
     </div>
 </div>
-<div class="jumbotron">
-    <div id="repos"></div>
+
+
+
+
+<div class="jumbotron" id="repoinfo">
+    <div id="repos">
+
+
+    </div>
 </div>
-<div class="jumbotron">
+
+
+<div class="jumbotron" id="commitsinfo">
     <div id="commitLists">
+
         <table id="tableid">
             <tr id="rows">
                 
             </tr>
         </table>
-
-
-
-
-
-
 
     </div>
 </div>

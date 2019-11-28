@@ -24,6 +24,13 @@ function setRepos(data) {
     console.log(data);
     for (var i = 0; i < data.length; i++) {
 
+        $('#repos').append($('<button type="button" onclick="return setCommit(\'' + data[i].repoOwner + '\',\'' + data[i].repoName + '\')">Show Commits</button>'));
+        var RepoProfile = document.createElement('img');
+        //var firstRepoText = document.createTextNode(data["repoProfile"]);
+        RepoProfile.src = data[i]["repoProfile"];
+        RepoProfile.id = "repoimage";
+        $('#repos').append(RepoProfile);
+
         //This is a variable called repoName of type var(takes type of the value)
         // we are creating an Element <h3> 
         var repoName = document.createElement('a');
@@ -55,12 +62,8 @@ function setRepos(data) {
         RepoTime.append(RepoTimeText);
         $('#repos').append(RepoTime);
 
-        var RepoProfile = document.createElement('img');
-        //var firstRepoText = document.createTextNode(data["repoProfile"]);
-        RepoProfile.src = data[i]["repoProfile"];
-        RepoProfile.id = "repoimage";
-        $('#repos').append(RepoProfile);
-        $('#repos').append($('<button type="button" onclick="return setCommit(\'' + data[i].repoOwner + '\',\'' + data[i].repoName + '\')">Click Here</button>'));
+        
+       
     }
 }
 
@@ -79,10 +82,10 @@ function errorinajax() {
 function showCommit(data) {
     console.log(data);
     $('#commitLists').empty();
-    $("#rows").append($('<th>Sha</th>'));
-    $("#rows").append($('<th>Date and Time</th>'));
-    $("#rows").append($('<th>Committer Name</th>'));
-    $("#rows").append($('<th>Commit Message</th>'));
+   // $("#rows").append($('<th>Sha</th>'));
+    //$("#rows").append($('<th>Date and Time</th>'));
+   // $("#rows").append($('<th>Committer Name</th>'));
+   // $("#rows").append($('<th>Commit Message</th>'));
     for (var i = 0; i < data.length; i++) {
 
         var commitSha = document.createElement('a');
