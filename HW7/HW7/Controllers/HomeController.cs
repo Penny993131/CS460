@@ -74,7 +74,7 @@ namespace HW7.Controllers
         }
 
 
-       /* public class commitInfo //Class that holds commit information
+        public class commitInfo //Class that holds commit information
         {
 
             public string commitSha; //= (string)jsonCommit["sha"],
@@ -85,8 +85,8 @@ namespace HW7.Controllers
 
         }
 
-      
-  public JsonResult Commit(string owner, string repo)
+
+        public JsonResult Commits(string owner="jmauricio1", string repo="JPAPZ")
         {
             string json = SendRequest("https://api.github.com/repos/" + owner + "/" + repo + "/commits", ConfigurationManager.AppSettings.Get("Token"), "penny993131");
             JArray jsonCommit = JArray.Parse(json);
@@ -97,11 +97,11 @@ namespace HW7.Controllers
                 commitInfo commit = new commitInfo(); //Making a new class to hold current commit information
 
 
-                commit.commitSha = (string)jsonCommit["sha"];
-                commit.commitTimestamp = (string)jsonCommit["commit"]["date"];
-                commit.commitCommitter = (string)jsonCommit["committer"]["name"];
-                commit.commitCommitmessage = (string)jsonCommit["message"];
-                commit.commitHtmlurl = (string)jsonCommit["html_url"];
+                commit.commitSha = (string)jsonCommit[i]["sha"];
+                commit.commitTimestamp = (string)jsonCommit[i]["commit"]["date"];
+                commit.commitCommitter = (string)jsonCommit[i]["committer"]["name"];
+                commit.commitCommitmessage = (string)jsonCommit[i]["message"];
+                commit.commitHtmlurl = (string)jsonCommit[i]["html_url"];
 
                 //List.add(new commitInfo)
                 intList.Add(commit);
@@ -109,9 +109,6 @@ namespace HW7.Controllers
             }
             return Json(intList, JsonRequestBehavior.AllowGet);
         }
-
-    */
-
 
         public ActionResult Index()
         {

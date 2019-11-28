@@ -57,5 +57,29 @@ function setRepos(data) {
         RepoProfile.src = data[i]["repoProfile"];
         RepoProfile.id = "repoimage";
         $('#repos').append(RepoProfile);
+        $('#repos').append($('<button type="button" onclick="return setCommit(\'' + data[i].repoOwner + '\',\'' + data[i].repoName + '\')">Click Here</button>'));
+    }
+}
+
+function setCommit(ownerName, repoName) {
+    $.ajax({
+        url: "/Home/Commits?owner=" + ownerName + "&repo=" + repoName,
+        dataType: "json",
+        method: "GET",
+        success: showCommit
+    });
+}
+function showCommit(data) {
+    console.log(data);
+    for (var i = 0; i < data.length; i++) {
+
+        var commitSha = document.createElement('h3');
+
+        var commitShaText = document.createTextNode(data[i]["commitSha"]);
+
+        commitSha.append(commitShaText);
+
+        commitSha.href = data[i]["commitHtmlurl"];
+        $('#comiitLists').append(commitSha);
     }
 }

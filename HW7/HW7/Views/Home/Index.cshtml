@@ -1,67 +1,30 @@
 ﻿@model HW7.Models.userprofile
 
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-4"><img src="@Model.Profileurl" height="150" width="150" /> </div>
+        <div class="col-lg-6">
+            @Model.Name
+            @Model.Login
 
-@section scripts{
-    @Scripts.Render("~/Scripts/main.js")
-}
+            @Model.Email
+            @Model.Bio
 
 
+            @Model.Location
 
-<div class="row" id="userinfo">
 
-    
-    <div class="col-md-8">
-
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.Label("Name:")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-
-            <dt>
-                @Html.Label("Owner:")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Login)
-            </dd>
-
-            <dt>
-                @Html.Label("Email:")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-
-            <dt>
-                @Html.Label("Bio:")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Bio)
-            </dd>
-
-            <dt>
-                @Html.Label("Location:")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Location)
-            </dd>
-
-            <dt>
-                @Html.Label("Company:")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Company)
-            </dd>
-
-        </dl>
+            @Model.Company
+        </div>
     </div>
 
 </div>
+
+<div id="repos"></div>
+
+<div id="comiitLists">
+
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/main.js")
+}
