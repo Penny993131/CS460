@@ -14,12 +14,12 @@ namespace HW7
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Commits",
+                name: "Commits List",
                 url: "api/Commits/{id}",
-                defaults: new { controller = "Home", action = "Repos", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Commits", id = UrlParameter.Optional }
             );
             routes.MapRoute(
-                name: "repository lists",
+                name: "Repos List",
                 url: "api/repositories",
                 defaults: new { controller = "Home", action = "Repos", id = UrlParameter.Optional }
             );

@@ -2,29 +2,42 @@
 
 <div class="jumbotron">
     <div class="row">
+     
         <div class="col-lg-4"><img src="@Model.Profileurl" height="150" width="150" /> </div>
         <div class="col-lg-6">
-            @Model.Name
-            @Model.Login
+            <p>@Model.Name</p>
+            <p>@Model.Login</p>
+            <p>@Model.Email</p>
+            <p>@Model.Bio</p>
+            <p>@Model.Location</p>
+            <p>
+                @Model.Company
+            </p>
 
-            @Model.Email
-            @Model.Bio
-
-
-            @Model.Location
-
-
-            @Model.Company
         </div>
     </div>
+</div>
+<div class="jumbotron">
+    <div id="repos"></div>
+</div>
+<div class="jumbotron">
+    <div id="commitLists">
+        <table id="tableid">
+            <tr id="rows">
+                
+            </tr>
+        </table>
 
+
+
+
+
+
+
+    </div>
 </div>
 
-<div id="repos"></div>
 
-<div id="comiitLists">
-
-</div>
 @section scripts{
     @Scripts.Render("~/Scripts/main.js")
 }

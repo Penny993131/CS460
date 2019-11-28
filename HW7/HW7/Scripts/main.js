@@ -4,6 +4,7 @@
         url: "/Home/Repos",
         dataType: "json",
         method: "GET",
+        error: errorinajax,
         success: function (data) {
             setRepos(data);
             //console.log(data);
@@ -14,7 +15,9 @@
         }
     });
 })
-
+function errorinajax() {
+    console.log("error in ajax");
+}
 function setRepos(data) {
     //console.log makes sure I am getting the data that I need for all the repositories
 
@@ -66,20 +69,51 @@ function setCommit(ownerName, repoName) {
         url: "/Home/Commits?owner=" + ownerName + "&repo=" + repoName,
         dataType: "json",
         method: "GET",
+        error: errorinajax,
         success: showCommit
     });
 }
+function errorinajax() {
+    console.log("error in ajax");
+}
 function showCommit(data) {
     console.log(data);
+    $('#commitLists').empty();
+    $("#rows").append($('<th>Sha</th>'));
+    $("#rows").append($('<th>Date and Time</th>'));
+    $("#rows").append($('<th>Committer Name</th>'));
+    $("#rows").append($('<th>Commit Message</th>'));
     for (var i = 0; i < data.length; i++) {
 
-        var commitSha = document.createElement('h3');
+        var commitSha = document.createElement('a');
 
         var commitShaText = document.createTextNode(data[i]["commitSha"]);
 
         commitSha.append(commitShaText);
 
         commitSha.href = data[i]["commitHtmlurl"];
-        $('#comiitLists').append(commitSha);
+        $('#commitLists').append(commitSha);
+
+
+
+        var commitTimestamp = document.createElement('h3');
+        var commitTimestampText = document.createTextNode(data[i]["commitTimestamp"]);
+        commitTimestamp.append(commitTimestampText);
+        $('#commitLists').append(commitTimestamp);
+
+        var commitCommitter = document.createElement('h3');
+        var commitCommitterText = document.createTextNode(data[i]["commitCommitter"]);
+        commitCommitter.append(commitCommitterText);
+        $('#commitLists').append(commitCommitter);
+
+        var commitCommitmessage = document.createElement('h3');
+        var commitCommitmessageText = document.createTextNode(data[i]["commitCommitmessage"]);
+        commitCommitmessage.append(commitCommitmessageText);
+        $('#commitLists').append(commitCommitmessage);
+
+
+
+
+
     }
 }

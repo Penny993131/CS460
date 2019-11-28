@@ -86,7 +86,7 @@ namespace HW7.Controllers
         }
 
 
-        public JsonResult Commits(string owner="jmauricio1", string repo="JPAPZ")
+        public JsonResult Commits(string owner, string repo)
         {
             string json = SendRequest("https://api.github.com/repos/" + owner + "/" + repo + "/commits", ConfigurationManager.AppSettings.Get("Token"), "penny993131");
             JArray jsonCommit = JArray.Parse(json);
@@ -98,9 +98,9 @@ namespace HW7.Controllers
 
 
                 commit.commitSha = (string)jsonCommit[i]["sha"];
-                commit.commitTimestamp = (string)jsonCommit[i]["commit"]["date"];
-                commit.commitCommitter = (string)jsonCommit[i]["committer"]["name"];
-                commit.commitCommitmessage = (string)jsonCommit[i]["message"];
+                commit.commitTimestamp = (string)jsonCommit[i]["commit"]["committer"]["date"];
+                commit.commitCommitter = (string)jsonCommit[i]["commit"]["committer"]["name"];
+                commit.commitCommitmessage = (string)jsonCommit[i]["commit"]["message"];
                 commit.commitHtmlurl = (string)jsonCommit[i]["html_url"];
 
                 //List.add(new commitInfo)
