@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HW7.Models
 {
-    public class userprofile
+    public class userprofile // I got some ideas from HW6
     {
         public string Name { get; private set; }
         public string Login { get; private set; }

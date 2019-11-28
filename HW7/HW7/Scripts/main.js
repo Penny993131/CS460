@@ -62,8 +62,8 @@ function setRepos(data) {
         RepoTime.append(RepoTimeText);
         $('#repos').append(RepoTime);
 
-        
-       
+
+
     }
 }
 
@@ -82,12 +82,18 @@ function errorinajax() {
 function showCommit(data) {
     console.log(data);
     $('#commitLists').empty();
-   // $("#rows").append($('<th>Sha</th>'));
-    //$("#rows").append($('<th>Date and Time</th>'));
-   // $("#rows").append($('<th>Committer Name</th>'));
-   // $("#rows").append($('<th>Commit Message</th>'));
+    
     for (var i = 0; i < data.length; i++) {
+       /* $("#rows").append($('<th>SHA</th>'));
+        $("#rows").append($('<th>Timestamp</th>'));
+        $("#rows").append($('<th>Committer</th>'));
+        $("#rows").append($('<th>Commit Message</th>'));
 
+        $('#tableid').append('<tr><td><a href="' + data[i]["commitHtmlurl"] + '">
+            < div style = "height:100%; with:100%" > '
+            + data[i]["commitSha"] + '</div></a></td><td>'
+            + data[i]["commitTimestamp"] + '</td><td>' + data[i]["commitCommitter"]
+            + '</td > <td>' + data[i]["commitCommitmessage"] + '</td></tr>');*/
         var commitSha = document.createElement('a');
 
         var commitShaText = document.createTextNode(data[i]["commitSha"]);
