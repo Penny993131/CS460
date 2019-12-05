@@ -1,59 +1,69 @@
-﻿CREATE TABLE [dbo].[Teams]
+﻿CREATE TABLE [dbo].[Athletes]
 (
 	[ID]	INT IDENTITY (1,1)	NOT NULL,
 	[Name]	NVARCHAR (50)		NOT NULL,
+	[Gender]	NVARCHAR (50)		NOT NULL,
+	CONSTRAINT [PK_dbo.Athletes] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[Teams]
+(
+	[ID]	INT IDENTITY (1,1)	NOT NULL,
+	[Title]	NVARCHAR (50)		NOT NULL,
+	[Coach]	NVARCHAR (50)		NOT NULL,
 	CONSTRAINT [PK_dbo.Teams] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
-CREATE TABLE [dbo].[Athletes]
+CREATE TABLE [dbo].[TeamsandAthletes]
 (
 	[ID]	INT IDENTITY (1,1)	NOT NULL,
-	[Name]	NVARCHAR (50)		NOT NULL,
-	CONSTRAINT [PK_dbo.Athletes] PRIMARY KEY CLUSTERED ([ID] ASC)
+	[TeamID]	INT,
+	[AthleteID]	INT,
+	CONSTRAINT [PK_dbo.TeamsandAthletes] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Teams_ID] FOREIGN KEY ([TeamID]) REFERENCES [dbo].[Teams] ([ID]),
+	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Athletes_ID] FOREIGN KEY ([AthleteID]) REFERENCES [dbo].[Athletes] ([ID])
 );
 
 CREATE TABLE [dbo].[Events]
 (
 	[ID]	INT IDENTITY (1,1)	NOT NULL,
-	[Title]	NVARCHAR (50)		NOT NULL,
+	[EventTitle]	NVARCHAR (50)		NOT NULL,
 	CONSTRAINT [PK_dbo.Events] PRIMARY KEY CLUSTERED ([ID] ASC)
-);
-
-CREATE TABLE [dbo].[Locations]
-(
-	[ID]	INT IDENTITY (1,1)	NOT NULL,
-	[Name]	NVARCHAR (50)		NOT NULL,
-	CONSTRAINT [PK_dbo.Locations] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
 CREATE TABLE [dbo].[Meets]
 (
 	[ID]	INT IDENTITY (1,1)	NOT NULL,
-	[Date]	DATETIME, NOT NULL,
+	[MeetDate]	DATETIME NOT NULL,
 	CONSTRAINT [PK_dbo.Meets] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
-CREATE TABLE [dbo].[RaceTimes]
+CREATE TABLE [dbo].[Locations]
 (
-	[ID]			INT IDENTITY (1001,1)	NOT NULL,
-	[Name]			NVARCHAR (50)			NOT NULL,
-	[Time]	NVARCHAR (256)	NOT NULL,
-	[AthleteID]		INT,
-	CONSTRAINT [PK_dbo.RaceTimes] PRIMARY KEY CLUSTERED ([ID] ASC),
-	CONSTRAINT [FK_dbo.RaceTimes_dbo.Athletes_ID] FOREIGN KEY ([AthleteID]) REFERENCES [dbo].[Athletes] ([ID])
+	[ID]	INT IDENTITY (1,1)	NOT NULL,
+	[Located]	NVARCHAR (50)		NOT NULL,
+	CONSTRAINT [PK_dbo.Locations] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
-/*CREATE TABLE [dbo].[Bids]
+CREATE TABLE [dbo].[RaceResults]
 (
-	[ID]		INT IDENTITY (1,1) NOT NULL,
-	[ItemID]	INT,
-	[BuyerID]	INT,
-	[Price]		DECIMAL (17,2),
-	[Timestamp]	DATETIME,
-	CONSTRAINT [PK_dbo.Bids] PRIMARY KEY CLUSTERED ([ID] ASC),
-	CONSTRAINT [FK_dbo.Bids_dbo.Items_ID] FOREIGN KEY ([ItemID]) REFERENCES [dbo].[Items] ([ID]),
-	CONSTRAINT [FK_dbo.Bids_dbo.Buyers_ID] FOREIGN KEY ([BuyerID]) REFERENCES [dbo].[Buyers] ([ID])
-);*/
+	[ID]			INT IDENTITY (1001,1)	NOT NULL,
+	[RaceTime]	NVARCHAR (256)	NOT NULL,
+	[AthleteID]	 INT,
+	[TeamID]	INT,
+	[MeetID]	INT,
+	[LocationID]	INT,
+	[EventID]	INT,
+
+	CONSTRAINT [PK_dbo.RaceTimes] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Teams_ID] FOREIGN KEY ([TeamID]) REFERENCES [dbo].[Teams] ([ID]),
+	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Athletes_ID] FOREIGN KEY ([AthleteID]) REFERENCES [dbo].[Athletes] ([ID]),
+	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Meets_ID] FOREIGN KEY ([MeetID]) REFERENCES [dbo].[Meets] ([ID]),
+	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Locations_ID] FOREIGN KEY ([LocationID]) REFERENCES [dbo].[Locations] ([ID]),
+	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Events_ID] FOREIGN KEY ([EventID]) REFERENCES [dbo].[Events] ([ID])
+);
+
+
 
 /*INSERT INTO [dbo].[Buyers](Name)
 	VALUES

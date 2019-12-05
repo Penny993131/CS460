@@ -7,11 +7,11 @@
 -- tables.
 CREATE TABLE [dbo].[AllData]
 (
-	[Location] NVARCHAR(50),
+	[Located] NVARCHAR(50),
 	[MeetDate] DATETIME,
 	[Team] NVARCHAR(50),
 	[Coach] NVARCHAR(50),
-	[Event] NVARCHAR(20),
+	[MyEvent] NVARCHAR(20),
 	[Gender] NVARCHAR(20),
 	[Athlete] NVARCHAR(50),
 	[RaceTime] REAL
@@ -29,40 +29,43 @@ BULK INSERT [dbo].[AllData]
 
 -- Load coaches data, no foreign keys here to worry about so we can 
 -- do a straight insert of just the distinct values
-INSERT INTO [dbo].[Coaches] ([Name])
-	SELECT DISTINCT Coach from [dbo].[AllData];
+--INSERT INTO [dbo].[Coaches] ([Name])
+--	SELECT DISTINCT Coach from [dbo].[AllData];
 
 -- Load Team data, a team has a coach so we need to find the correct entry in the 
 -- Coaches table so we can set the foreign key appropriately
-INSERT INTO [dbo].[Teams]
-	(Name,CoachID)
-	SELECT DISTINCT ad.Team,cs.ID
-		FROM dbo.AllData as ad, dbo.Coaches as cs
-		WHERE ad.Coach = cs.Name;
 
-INSERT INTO [dbo].[Locations]
-	SELECT DISTINCT Location from [dbo].[AllData];
+INSERT INTO [dbo].[Athletes]([Name], [Gender])
+	SELECT DISTINCT Athlete, Gender from [dbo].[AllData];
 
-INSERT INTO [dbo].[MeetDates]
-	(Name,CoachID)
-	SELECT DISTINCT ad.Team,cs.ID
-		FROM dbo.AllData as ad, dbo.Coaches as cs
-		WHERE ad.Coach = cs.Name;
+INSERT INTO [dbo].[Teams]([Title],[Coach])
+	SELECT DISTINCT Team, Coach from [dbo].[AllData];
+		
 
-INSERT INTO [dbo].[Events]
-	SELECT DISTINCT Event from [dbo].[AllData];
+INSERT INTO [dbo].[TeamsandAthletes] ([TeamID],[AthleteID])
+	SELECT DISTINCT team.ID, athlete.ID
+		FROM AllData ad	--AllData is going to be nicknamed "ad" while Teams is going to be nicknamed "team"
+		INNER JOIN Teams team ON ad.Team = team.Title -- Where ad [Team] is the same as team [Title], Join the two tables
+		INNER JOIN Athletes athlete ON ad.Athlete = athlete.Name;
+		--Nicknaming Athletes as "athlete"
+		--Now add on to the table where ad [Athlete] is the same as athlete [Name]
 
-INSERT INTO [dbo].[Genders]
-	SELECT DISTINCT Gender from [dbo].[AllData];
+INSERT INTO [dbo].[Events]([EventTitle])
+	SELECT DISTINCT MyEvent from [dbo].[AllData];
 
-INSERT INTO [dbo].[Athletes]
-	SELECT DISTINCT Athlete from [dbo].[AllData];
+INSERT INTO [dbo].[Meets]([MeetDate])
+	SELECT DISTINCT MeetDate from [dbo].[AllData];
+
+INSERT INTO [dbo].[Locations]([Location])                                             
+	SELECT DISTINCT Located from [dbo].[AllData];
 
 -- Load all the other tables in a similar fashion.  Race results is the hardest since
 -- it has several FK's.  Think joins.
-INSERT INTO [dbo].[RaceTimes]
-     (Name,AthleteID)
-	(Name,LocationID)
---	SELECT DISTINCT ad.Team,cs.ID
-	--	FROM dbo.AllData as ad, dbo.Coaches as cs
-	--	WHERE ad.Coach = cs.Name;
+INSERT INTO [dbo].[RaceResults]([RaceTime],[AthleteID],[TeamID],[MeetID],[LocationID],[EventID])
+    SELECT DISTINCT ad.RaceTime, athlete.ID, team.ID, meet.ID,mylocation.ID,myevent.ID
+		FROM AllData ad	
+		INNER JOIN Athletes athlete ON ad.Athlete = athlete.Name
+		INNER JOIN Teams team ON ad.Team = team.Title
+		INNER JOIN Meets meet ON ad.MeetDate = meet.MeetDate
+		INNER JOIN Locations mylocation ON ad.Located = mylocation.Located
+		INNER JOIN Events myevent ON ad.MyEvent = myevent.EventTitle;
