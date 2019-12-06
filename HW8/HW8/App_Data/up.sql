@@ -1,10 +1,4 @@
-﻿CREATE TABLE [dbo].[Athletes]
-(
-	[ID]	INT IDENTITY (1,1)	NOT NULL,
-	[Name]	NVARCHAR (50)		NOT NULL,
-	[Gender]	NVARCHAR (50)		NOT NULL,
-	CONSTRAINT [PK_dbo.Athletes] PRIMARY KEY CLUSTERED ([ID] ASC)
-);
+﻿
 
 CREATE TABLE [dbo].[Teams]
 (
@@ -12,6 +6,17 @@ CREATE TABLE [dbo].[Teams]
 	[Title]	NVARCHAR (50)		NOT NULL,
 	[Coach]	NVARCHAR (50)		NOT NULL,
 	CONSTRAINT [PK_dbo.Teams] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[Athletes]
+(
+	[ID]	INT IDENTITY (1,1)	NOT NULL,
+	[Name]	NVARCHAR (50)		NOT NULL,
+	[Gender]	NVARCHAR (50)		NOT NULL,
+	[TeamID]	INT,
+	CONSTRAINT [PK_dbo.Athletes] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.Athletes_dbo.Teams_ID] FOREIGN KEY ([TeamID]) REFERENCES [dbo].[Teams] ([ID])
+	
 );
 
 CREATE TABLE [dbo].[TeamsandAthletes]
@@ -47,7 +52,7 @@ CREATE TABLE [dbo].[Locations]
 
 CREATE TABLE [dbo].[RaceResults]
 (
-	[ID]			INT IDENTITY (1001,1)	NOT NULL,
+	[ID]			INT IDENTITY (1,1)	NOT NULL,
 	[RaceTime]	NVARCHAR (256)	NOT NULL,
 	[AthleteID]	 INT,
 	[TeamID]	INT,
@@ -55,12 +60,12 @@ CREATE TABLE [dbo].[RaceResults]
 	[LocationID]	INT,
 	[EventID]	INT,
 
-	CONSTRAINT [PK_dbo.RaceTimes] PRIMARY KEY CLUSTERED ([ID] ASC),
-	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Teams_ID] FOREIGN KEY ([TeamID]) REFERENCES [dbo].[Teams] ([ID]),
-	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Athletes_ID] FOREIGN KEY ([AthleteID]) REFERENCES [dbo].[Athletes] ([ID]),
-	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Meets_ID] FOREIGN KEY ([MeetID]) REFERENCES [dbo].[Meets] ([ID]),
-	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Locations_ID] FOREIGN KEY ([LocationID]) REFERENCES [dbo].[Locations] ([ID]),
-	CONSTRAINT [PK_dbo.TeamsandAthletes_dbo.Events_ID] FOREIGN KEY ([EventID]) REFERENCES [dbo].[Events] ([ID])
+	CONSTRAINT [PK_dbo.RaceResults] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [PK_dbo.RaceResults_dbo.Teams_ID] FOREIGN KEY ([TeamID]) REFERENCES [dbo].[Teams] ([ID]),
+	CONSTRAINT [PK_dbo.RaceResults_dbo.Athletes_ID] FOREIGN KEY ([AthleteID]) REFERENCES [dbo].[Athletes] ([ID]),
+	CONSTRAINT [PK_dbo.RaceResults_dbo.Meets_ID] FOREIGN KEY ([MeetID]) REFERENCES [dbo].[Meets] ([ID]),
+	CONSTRAINT [PK_dbo.RaceResults_dbo.Locations_ID] FOREIGN KEY ([LocationID]) REFERENCES [dbo].[Locations] ([ID]),
+	CONSTRAINT [PK_dbo.RaceResults_dbo.Events_ID] FOREIGN KEY ([EventID]) REFERENCES [dbo].[Events] ([ID])
 );
 
 

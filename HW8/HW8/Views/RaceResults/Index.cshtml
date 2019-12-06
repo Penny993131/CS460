@@ -1,0 +1,63 @@
+﻿@model IEnumerable<HW8.Models.RaceResult>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Athlete.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Event.EventTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.Located)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meet.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RaceTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Athlete.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event.EventTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.Located)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meet.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RaceTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

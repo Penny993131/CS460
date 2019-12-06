@@ -1,2 +1,6 @@
-﻿select * from [dbo].[AllData];
-SELECT * FROM [dbo].[RaceResults];
+﻿--select * from [dbo].[AllData];
+--SELECT * FROM [dbo].[RaceResults];
+Select * From [dbo].[Athletes];
+SELECT * 
+FROM [dbo].[RaceResults]
+WHERE [dbo].[RaceResults].AthleteID = 1;

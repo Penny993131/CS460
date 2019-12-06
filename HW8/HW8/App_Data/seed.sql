@@ -35,12 +35,15 @@ BULK INSERT [dbo].[AllData]
 -- Load Team data, a team has a coach so we need to find the correct entry in the 
 -- Coaches table so we can set the foreign key appropriately
 
-INSERT INTO [dbo].[Athletes]([Name], [Gender])
-	SELECT DISTINCT Athlete, Gender from [dbo].[AllData];
-
 INSERT INTO [dbo].[Teams]([Title],[Coach])
 	SELECT DISTINCT Team, Coach from [dbo].[AllData];
 		
+INSERT INTO [dbo].[Athletes]([Name], [Gender],[TeamID])
+	SELECT DISTINCT Athlete, Gender,team.ID
+	FROM AllData ad
+	INNER JOIN Teams team ON ad.Team = team.Title;
+
+
 
 INSERT INTO [dbo].[TeamsandAthletes] ([TeamID],[AthleteID])
 	SELECT DISTINCT team.ID, athlete.ID
@@ -56,7 +59,7 @@ INSERT INTO [dbo].[Events]([EventTitle])
 INSERT INTO [dbo].[Meets]([MeetDate])
 	SELECT DISTINCT MeetDate from [dbo].[AllData];
 
-INSERT INTO [dbo].[Locations]([Location])                                             
+INSERT INTO [dbo].[Locations]([Located])                                             
 	SELECT DISTINCT Located from [dbo].[AllData];
 
 -- Load all the other tables in a similar fashion.  Race results is the hardest since
