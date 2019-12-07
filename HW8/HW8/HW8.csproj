@@ -129,25 +129,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AthletesController.cs" />
-    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationsController.cs" />
-    <Compile Include="Controllers\MeetsController.cs" />
-    <Compile Include="Controllers\RaceResultsController.cs" />
-    <Compile Include="Controllers\TeamsandAthletesController.cs" />
-    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Athlete.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\Meet.cs" />
     <Compile Include="DAL\RaceContext.cs" />
-    <Compile Include="Models\RaceResult.cs" />
-    <Compile Include="Models\Team.cs" />
-    <Compile Include="Models\TeamsandAthlete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -228,7 +214,9 @@
     <Content Include="Views\TeamsandAthletes\Index.cshtml" />
     <Content Include="Views\Home\CreateAthlete.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

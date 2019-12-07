@@ -9,7 +9,7 @@ namespace HW8.DAL
     public partial class RaceContext : DbContext
     {
         public RaceContext()
-            : base("name=RaceContext_Azure")
+            : base("name=RaceContext")
         {
         }
 

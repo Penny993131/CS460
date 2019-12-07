@@ -1,4 +1,4 @@
-﻿-- ################### SEED DATA ######################
+﻿ -- ################### SEED DATA ######################
 
 -- Extract data from .csv file and load into our db
 
@@ -38,12 +38,8 @@ BULK INSERT [dbo].[AllData]
 INSERT INTO [dbo].[Teams]([Title],[Coach])
 	SELECT DISTINCT Team, Coach from [dbo].[AllData];
 		
-INSERT INTO [dbo].[Athletes]([Name], [Gender],[TeamID])
-	SELECT DISTINCT Athlete, Gender,team.ID
-	FROM AllData ad
-	INNER JOIN Teams team ON ad.Team = team.Title;
-
-
+INSERT INTO [dbo].[Athletes]([Name], [Gender])
+	SELECT DISTINCT Athlete, Gender from [dbo].[AllData];	
 
 INSERT INTO [dbo].[TeamsandAthletes] ([TeamID],[AthleteID])
 	SELECT DISTINCT team.ID, athlete.ID
@@ -53,22 +49,18 @@ INSERT INTO [dbo].[TeamsandAthletes] ([TeamID],[AthleteID])
 		--Nicknaming Athletes as "athlete"
 		--Now add on to the table where ad [Athlete] is the same as athlete [Name]
 
+INSERT INTO [dbo].[Locations]([Located],[MeetDate])                                             
+	SELECT DISTINCT Located, MeetDate from [dbo].[AllData];
+
 INSERT INTO [dbo].[Events]([EventTitle])
 	SELECT DISTINCT MyEvent from [dbo].[AllData];
 
-INSERT INTO [dbo].[Meets]([MeetDate])
-	SELECT DISTINCT MeetDate from [dbo].[AllData];
-
-INSERT INTO [dbo].[Locations]([Located])                                             
-	SELECT DISTINCT Located from [dbo].[AllData];
 
 -- Load all the other tables in a similar fashion.  Race results is the hardest since
 -- it has several FK's.  Think joins.
-INSERT INTO [dbo].[RaceResults]([RaceTime],[AthleteID],[TeamID],[MeetID],[LocationID],[EventID])
-    SELECT DISTINCT ad.RaceTime, athlete.ID, team.ID, meet.ID,mylocation.ID,myevent.ID
+INSERT INTO [dbo].[RaceResults]([RaceTime],[AthleteID],[EventID],[LocationID])
+    SELECT DISTINCT ad.RaceTime, athlete.ID, myevent.ID, mylocation.ID
 		FROM AllData ad	
 		INNER JOIN Athletes athlete ON ad.Athlete = athlete.Name
-		INNER JOIN Teams team ON ad.Team = team.Title
-		INNER JOIN Meets meet ON ad.MeetDate = meet.MeetDate
-		INNER JOIN Locations mylocation ON ad.Located = mylocation.Located
-		INNER JOIN Events myevent ON ad.MyEvent = myevent.EventTitle;
+		INNER JOIN Events myevent ON ad.MyEvent = myevent.EventTitle
+		INNER JOIN Locations mylocation ON ad.Located = mylocation.Located;
