@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HW8.Models;
+using HW8.DAL;
 
 namespace HW8.Controllers
 {
