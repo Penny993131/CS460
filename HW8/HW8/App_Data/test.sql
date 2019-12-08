@@ -10,4 +10,4 @@ s*/
 USE HW8;
 
 SELECT *
-FROM [dbo].[TeamsandAthletes];
+FROM [dbo].[Athletes];

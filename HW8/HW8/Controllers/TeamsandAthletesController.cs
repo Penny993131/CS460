@@ -49,10 +49,13 @@ namespace HW8.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,AthleteID,Gender,TeamID")] TeamsandAthlete teamsandAthlete)
+        public ActionResult Create([Bind(Include = "ID,AthleteID,Gender,TeamID")] TeamsandAthlete teamsandAthlete, string athleteName)
         {
+            
+
             if (ModelState.IsValid)
             {
+                teamsandAthlete.AthleteID = db.Athletes.Where(s => s.Name.Contains(athleteName)).Select(s => s.ID).FirstOrDefault();
                 db.TeamsandAthletes.Add(teamsandAthlete);
                 db.SaveChanges();
                 return RedirectToAction("Index");

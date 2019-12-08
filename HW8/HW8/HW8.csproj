@@ -146,6 +146,7 @@
     <Compile Include="Models\RaceResult.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamsandAthlete.cs" />
+    <Compile Include="Models\ViewModel\DetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
