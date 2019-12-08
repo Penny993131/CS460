@@ -129,11 +129,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AthletesController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\RaceResultsController.cs" />
+    <Compile Include="Controllers\TeamsandAthletesController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Athlete.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="DAL\RaceContext.cs" />
+    <Compile Include="Models\RaceResult.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\TeamsandAthlete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,31 +189,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\CreateAthlete.cshtml" />
+    <Content Include="Views\Home\CreateTeam.cshtml" />
+    <Content Include="Views\Home\CreateTeamandAthlete.cshtml" />
     <Content Include="Views\Athletes\Create.cshtml" />
     <Content Include="Views\Athletes\Delete.cshtml" />
     <Content Include="Views\Athletes\Details.cshtml" />
     <Content Include="Views\Athletes\Edit.cshtml" />
     <Content Include="Views\Athletes\Index.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
-    <Content Include="Views\Events\Delete.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\Edit.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
-    <Content Include="Views\Locations\Create.cshtml" />
-    <Content Include="Views\Locations\Delete.cshtml" />
-    <Content Include="Views\Locations\Details.cshtml" />
-    <Content Include="Views\Locations\Edit.cshtml" />
-    <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Meets\Create.cshtml" />
-    <Content Include="Views\Meets\Delete.cshtml" />
-    <Content Include="Views\Meets\Details.cshtml" />
-    <Content Include="Views\Meets\Edit.cshtml" />
-    <Content Include="Views\Meets\Index.cshtml" />
-    <Content Include="Views\RaceResults\Create.cshtml" />
-    <Content Include="Views\RaceResults\Delete.cshtml" />
-    <Content Include="Views\RaceResults\Details.cshtml" />
-    <Content Include="Views\RaceResults\Edit.cshtml" />
-    <Content Include="Views\RaceResults\Index.cshtml" />
     <Content Include="Views\Teams\Create.cshtml" />
     <Content Include="Views\Teams\Delete.cshtml" />
     <Content Include="Views\Teams\Details.cshtml" />
@@ -212,11 +207,23 @@
     <Content Include="Views\TeamsandAthletes\Details.cshtml" />
     <Content Include="Views\TeamsandAthletes\Edit.cshtml" />
     <Content Include="Views\TeamsandAthletes\Index.cshtml" />
-    <Content Include="Views\Home\CreateAthlete.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="Views\RaceResults\Create.cshtml" />
+    <Content Include="Views\RaceResults\Delete.cshtml" />
+    <Content Include="Views\RaceResults\Details.cshtml" />
+    <Content Include="Views\RaceResults\Edit.cshtml" />
+    <Content Include="Views\RaceResults\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

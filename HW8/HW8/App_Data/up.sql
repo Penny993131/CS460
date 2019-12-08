@@ -12,15 +12,16 @@ CREATE TABLE [dbo].[Athletes]
 (
 	[ID]	INT IDENTITY (1,1)	NOT NULL,
 	[Name]	NVARCHAR (50)		NOT NULL,
-	[Gender]	NVARCHAR (50)		NOT NULL,
 	CONSTRAINT [PK_dbo.Athletes] PRIMARY KEY CLUSTERED ([ID] ASC),
 );
 
 CREATE TABLE [dbo].[TeamsandAthletes]
 (
 	[ID]	INT IDENTITY (1,1)	NOT NULL,
-	[TeamID]	INT    NOT NULL,
 	[AthleteID]	INT    NOT NULL,
+	[Gender]	NVARCHAR (50)	NOT NULL,
+	[TeamID]	INT    NOT NULL,
+
 	CONSTRAINT [PK_dbo.TeamsandAthletes] PRIMARY KEY CLUSTERED ([ID] ASC),
 	CONSTRAINT [FK_dbo.TeamsandAthletes_dbo.Teams_ID] FOREIGN KEY ([TeamID]) REFERENCES [dbo].[Teams] ([ID]),
 	CONSTRAINT [FK_dbo.TeamsandAthletes_dbo.Athletes_ID] FOREIGN KEY ([AthleteID]) REFERENCES [dbo].[Athletes] ([ID])

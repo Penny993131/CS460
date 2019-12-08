@@ -38,11 +38,11 @@ BULK INSERT [dbo].[AllData]
 INSERT INTO [dbo].[Teams]([Title],[Coach])
 	SELECT DISTINCT Team, Coach from [dbo].[AllData];
 		
-INSERT INTO [dbo].[Athletes]([Name], [Gender])
-	SELECT DISTINCT Athlete, Gender from [dbo].[AllData];	
+INSERT INTO [dbo].[Athletes]([Name])
+	SELECT DISTINCT Athlete from [dbo].[AllData];	
 
-INSERT INTO [dbo].[TeamsandAthletes] ([TeamID],[AthleteID])
-	SELECT DISTINCT team.ID, athlete.ID
+INSERT INTO [dbo].[TeamsandAthletes] ([Gender],[TeamID],[AthleteID])
+	SELECT DISTINCT ad.Gender, team.ID, athlete.ID
 		FROM AllData ad	--AllData is going to be nicknamed "ad" while Teams is going to be nicknamed "team"
 		INNER JOIN Teams team ON ad.Team = team.Title -- Where ad [Team] is the same as team [Title], Join the two tables
 		INNER JOIN Athletes athlete ON ad.Athlete = athlete.Name;
