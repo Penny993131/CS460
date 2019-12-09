@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HW8.Models;
+using HW8.Models.ViewModel;
+
 
 namespace HW8.Controllers
 {
@@ -33,7 +35,8 @@ namespace HW8.Controllers
             {
                 return HttpNotFound();
             }
-            return View(raceResult);
+            DetailsViewModel viewModel = new DetailsViewModel (raceResult);
+            return View(viewModel);
         }
 
         // GET: RaceResults/Create
