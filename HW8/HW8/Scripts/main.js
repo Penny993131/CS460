@@ -136,3 +136,49 @@ function showTheResults(data) {
     }
 }
 
+//-----------------------------------------------------------------
+
+$("#request").click(function () {
+    var n = $("#count").val();
+    url: "athletes/list?id=" + num,
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "athletes/list?id=" + num,
+        success: displayData,
+        error: errorOnAjax
+    });
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/Athletes/Details",
+        success: displayEarthquakes,
+        error: errorOnAjax
+    });
+});
+
+function errorOnAjax() {
+    console.log("ERROR in ajax request.");
+}
+
+function displayData(data) {
+    console.log(data);
+    $('#message').text(data["message"]);
+    $('#num').text(data.num);
+    $('#numbers').text(data["numbers"]);
+    var trace = {
+        x: data.numbers1,
+        y: data.numbers,
+        mode: 'lines',
+        type: 'scatter'
+    };
+    var plotData = [trace];
+    var layout = {};
+    Plotly.newPlot('theplot', plotData, layout);
+}
+
+function displayEarthquakes(data) {
+    for (var i = 0; i < data.length; ++i) {
+        $('#mdate').append($('<li>' + data[i] + '</li>'));
+    }
+}

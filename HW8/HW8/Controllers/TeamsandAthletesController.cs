@@ -57,7 +57,7 @@ namespace HW8.Controllers
 
             if (ModelState.IsValid)
             {
-                /*teamsandAthlete.AthleteID = db.Athletes.Where(s => s.Name.Contains(athleteName)).Select(s => s.ID).FirstOrDefault();*/
+                teamsandAthlete.AthleteID = db.Athletes.Where(s => s.Name.Contains(athleteName)).Select(s => s.ID).FirstOrDefault();
                 db.TeamsandAthletes.Add(teamsandAthlete);
                 db.SaveChanges();
                 return RedirectToAction("Index");
