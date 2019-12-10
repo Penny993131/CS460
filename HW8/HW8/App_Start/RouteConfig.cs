@@ -14,6 +14,12 @@ namespace HW8
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "GettingListOfResults",
+                url: "athletes/list",
+                defaults: new { controller = "Athletes", action = "Details"}
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

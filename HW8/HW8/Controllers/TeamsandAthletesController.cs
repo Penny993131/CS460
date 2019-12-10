@@ -29,11 +29,13 @@ namespace HW8.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             TeamsandAthlete teamsandAthlete = db.TeamsandAthletes.Find(id);
+            var raceAthlete = db.RaceResults.Where(s => s.AthleteID == id);
+            ViewBag.AthleteInfo = db.Athletes.Where(s => s.ID == id).FirstOrDefault();
             if (teamsandAthlete == null)
             {
                 return HttpNotFound();
             }
-            return View(teamsandAthlete);
+            return View(raceAthlete);
         }
 
         // GET: TeamsandAthletes/Create

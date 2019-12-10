@@ -1,4 +1,4 @@
-﻿@model HW8.Models.TeamsandAthlete
+﻿@model IEnumerable<HW8.Models.RaceResult>
 
 @{
     ViewBag.Title = "Details";
@@ -13,30 +13,33 @@
         <dt>
             @Html.DisplayNameFor(model => model.Athlete.Name)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Athlete.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Team.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Team.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
+            @Html.DisplayFor(Model => Model.Select(s => s.Athlete.Name).FirstOrDefault())
         </dd>
 
     </dl>
 </div>
+<table>
+    <tr>
+        <th>MeetDate</th>
+    </tr>
+    <tr>
+        <th>Event Name</th>
+    </tr>
+    <tr>
+        <th>MeetTitle</th>
+    </tr>
+     <tr>
+        <th>MeetTitle</th>
+    </tr
+    @foreach (var item in Model)
+  {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Event.EventTitle)</td>
+        </tr>
+    }
+</table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
     @Html.ActionLink("Back to List", "Index")
 </p>

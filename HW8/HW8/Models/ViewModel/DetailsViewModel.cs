@@ -22,7 +22,6 @@ namespace HW8.Models.ViewModel
 
             RaceTime = raceresult.RaceTime;
 
-
         }
 
         public DateTime MeetDate { get; private set; }

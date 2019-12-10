@@ -24,10 +24,15 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) 
+            <button id="information" onclick="getResults()">Yes</button>
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
 
 </table>
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+    }

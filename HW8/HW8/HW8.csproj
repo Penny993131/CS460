@@ -175,6 +175,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -195,7 +196,6 @@
     <Content Include="Views\Home\CreateTeamandAthlete.cshtml" />
     <Content Include="Views\Athletes\Create.cshtml" />
     <Content Include="Views\Athletes\Delete.cshtml" />
-    <Content Include="Views\Athletes\Details.cshtml" />
     <Content Include="Views\Athletes\Edit.cshtml" />
     <Content Include="Views\Athletes\Index.cshtml" />
     <Content Include="Views\Teams\Create.cshtml" />
