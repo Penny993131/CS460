@@ -24,7 +24,7 @@ namespace HW8.Controllers
         // GET: Athletes/Details/5
         public ActionResult Details(int? id)
         {
-            //if (id == null)
+            /*//if (id == null)
             //{
             //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             //}
@@ -32,16 +32,16 @@ namespace HW8.Controllers
             //if (athlete == null)
             //{
             //    return HttpNotFound();
-            //} 
+            //} */
             var information = new
             {
-
                  Athletename = db.Athletes.Where(s => s.ID == id).Select(s => s.Name),
                  Athletegender = db.TeamsandAthletes.Where(p => p.AthleteID == id).Select(p => p.Gender),
-                 Racetime = db.RaceResults.Where(q => q.AthleteID == id).Select(q => q.RaceTime),
+                Meetdate = db.RaceResults.Where(m => m.AthleteID == id).Select(r => r.Location.MeetDate),
                 Eventtitle = db.RaceResults.Where(r => r.AthleteID == id).Select(r => r.Event.EventTitle),
-              Meetdate = db.Locations.Where(m => m.ID == id).Select(r => r.MeetDate),
-                Location = db.Locations.Where(i => i.ID == id).Select(i => i.Located)
+                Location = db.RaceResults.Where(i => i.AthleteID == id).Select(i => i.Location.Located),
+                Racetime = db.RaceResults.Where(q => q.AthleteID == id).Select(q => q.RaceTime)
+                
             };
             // parse json
             string jsonString = JsonConvert.SerializeObject(information, Formatting.Indented);
