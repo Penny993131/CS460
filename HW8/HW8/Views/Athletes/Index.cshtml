@@ -28,6 +28,7 @@
                 @Html.ActionLink("Details", "Details", new { id = item.ID })
                 <button id="information" onclick="getResults(@item.ID)">See Races</button>
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                <button>Future Graph Button</button>
             </td>
         </tr>
     }
@@ -37,6 +38,10 @@
 
 </div>
 
+   <div id="myDynamicTable"></div>
+    <table id="racelist">
+
+    </table>
 @section scripts{
     <script type="text/javascript" src="~/Scripts/main.js"></script>
     }
