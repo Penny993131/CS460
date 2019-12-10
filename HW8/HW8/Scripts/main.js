@@ -152,7 +152,7 @@ $("#request").click(function () {
         type: "GET",
         dataType: "json",
         url: "/Athletes/Details",
-        success: displayEarthquakes,
+        success: displayRaceChange,
         error: errorOnAjax
     });
 });
@@ -167,8 +167,8 @@ function displayData(data) {
     $('#num').text(data.num);
     $('#numbers').text(data["numbers"]);
     var trace = {
-        x: data.numbers1,
-        y: data.numbers,
+        x: mdate.numbers1,
+        y: rtime.numbers,
         mode: 'lines',
         type: 'scatter'
     };
@@ -177,8 +177,8 @@ function displayData(data) {
     Plotly.newPlot('theplot', plotData, layout);
 }
 
-function displayEarthquakes(data) {
-    for (var i = 0; i < data.length; ++i) {
+function displayRaceChange(data) {
+    for (var i = 0; i < data["Eventtitle"].length; i++) {
         $('#mdate').append($('<li>' + data[i] + '</li>'));
     }
 }
