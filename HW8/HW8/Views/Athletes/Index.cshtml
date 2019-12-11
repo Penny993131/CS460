@@ -28,7 +28,7 @@
                 @Html.ActionLink("Details", "Details", new { id = item.ID })
                 <button id="information" onclick="getResults(@item.ID)">See Races</button>
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                <button>Future Graph Button</button>
+                <button id="graph" onclick="displayRaceChange(@item.ID)">Future Graph Button</button>
             </td>
         </tr>
     }

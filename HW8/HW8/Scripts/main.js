@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿/*$(document).ready(function () {
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -6,7 +6,7 @@
         success: showTheResults,
         error: errorOnAjax
     });
-});
+});*/
 
 function getResults(num) {
     $.ajax({
@@ -146,13 +146,6 @@ $("#request").click(function () {
         dataType: "json",
         url: "athletes/list?id=" + num,
         success: displayData,
-        error: errorOnAjax
-    });
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "/Athletes/Details",
-        success: displayRaceChange,
         error: errorOnAjax
     });
 });

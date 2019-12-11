@@ -24,23 +24,25 @@ namespace HW8.Controllers
         // GET: Athletes/Details/5
         public ActionResult Details(int? id)
         {
-            /*//if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //Athlete athlete = db.Athletes.Find(id);
-            //if (athlete == null)
-            //{
-            //    return HttpNotFound();
-            //} */
+            /*if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Athlete athlete = db.Athletes.Find(id);
+            if (athlete == null)
+            {
+                return HttpNotFound();
+            } */
+            var athleteInfo = db.RaceResults.Where(s => s.AthleteID == id).OrderBy(s => s.Event.EventTitle).ThenBy(s => s.Location.MeetDate);//This is how to sort by distance then the secondary should be Eventdate
+
             var information = new
             {
-                 Athletename = db.Athletes.Where(s => s.ID == id).Select(s => s.Name),
-                 Athletegender = db.TeamsandAthletes.Where(p => p.AthleteID == id).Select(p => p.Gender),
-                Meetdate = db.RaceResults.Where(m => m.AthleteID == id).Select(r => r.Location.MeetDate),
-                Eventtitle = db.RaceResults.Where(r => r.AthleteID == id).Select(r => r.Event.EventTitle),
-                Location = db.RaceResults.Where(i => i.AthleteID == id).Select(i => i.Location.Located),
-                Racetime = db.RaceResults.Where(q => q.AthleteID == id).Select(q => q.RaceTime)
+                Athletename = athleteInfo.Select(s => s.Athlete.Name),
+                Athletegender = db.TeamsandAthletes.Where(p => p.AthleteID == id).Select(p => p.Gender),
+                Meetdate = athleteInfo.Select(s => s.Location.MeetDate),
+                Eventtitle = athleteInfo.Select(r => r.Event.EventTitle),
+                Location = athleteInfo.Select(i => i.Location.Located),
+                Racetime = athleteInfo.Select(q => q.RaceTime)
                 
             };
             // parse json
@@ -54,8 +56,48 @@ namespace HW8.Controllers
     };
 }
 
-// GET: Athletes/Create
-public ActionResult Create()
+       /* public ActionResult Details(int? id)
+        {
+
+            var graphinfo = new
+            {
+
+                Racetime =  
+
+
+
+            }
+          }
+
+
+
+
+
+
+        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // GET: Athletes/Create
+        public ActionResult Create()
 {
     return View();
 }
@@ -73,7 +115,7 @@ public ActionResult Create([Bind(Include = "ID,Name")] Athlete athlete)
         db.SaveChanges();
         return RedirectToAction("Index");
     }
-
+     
     return View(athlete);
 }
 

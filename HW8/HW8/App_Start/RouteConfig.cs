@@ -18,7 +18,11 @@ namespace HW8
                 url: "athletes/list",
                 defaults: new { controller = "Athletes", action = "Details"}
             );
-
+            routes.MapRoute(
+                name: "GettingGraphOfResults",
+                url: "athletes/graph",
+                defaults: new { controller = "Athletes", action = "Details" }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
